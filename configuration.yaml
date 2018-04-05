@@ -1,0 +1,23 @@
+homeassistant:
+
+
+#MyHome bTicino
+my_home:
+  host: IP Address of gateway
+  port: '20000' this is the default
+  password: If your gateway has one
+
+# Weather prediction
+sensor:
+  - platform: my_home
+    devices:
+       - name: name for temperature probe and/or central unit
+         indirizzo: address on the bus es 11
+
+
+
+light:
+  - platform: my_home
+    devices:
+       - name: Name for your light
+         indirizzo: address on the bus es. 31,32 ecc
