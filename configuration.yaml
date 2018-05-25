@@ -1,23 +1,54 @@
 homeassistant:
+  # Name of the location where Home Assistant is running
+  name:
+  # Location required to calculate the time the sun rises and sets
+  latitude:
+  longitude:
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation:
+  # metric for Metric, imperial for Imperial
+  unit_system:
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone:
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
 
 
-#MyHome bTicino
+#MyHome bTicino 
 my_home:
-  host: IP Address of gateway
-  port: '20000' this is the default
-  password: If your gateway has one
+  host: 'xxx.xxx.xxx.xxx'
+  port: '20000'
+  password: 'your password'
 
-# Weather prediction
+
 sensor:
   - platform: my_home
-    devices:
-       - name: name for temperature probe and/or central unit
-         indirizzo: address on the bus es 11
 
+    devices:
+       - name: 'A name for Temperature zone'
+         indirizzo: 'bus address'
 
 
 light:
   - platform: my_home
+
+    scan_interval: 5
     devices:
-       - name: Name for your light
-         indirizzo: address on the bus es. 31,32 ecc
+       - name: 'A name for the light'
+         indirizzo: 'bus address'
+
+switch:
+  - platform: my_home
+
+    devices:
+       - name: 'A name for the switch'
+         indirizzo: 'bus address'

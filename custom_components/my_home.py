@@ -18,7 +18,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "my_home"
 #DEPENDENCIES = []
-REQUIREMENTS = ['OpenWebNet==1.0.1']
+REQUIREMENTS = ['OpenWebNet==1.2.8']
 
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
@@ -34,6 +34,7 @@ def setup(hass,config):
     host = config[DOMAIN].get(CONF_HOST)
     port = config[DOMAIN].get(CONF_PORT)
     password = config[DOMAIN].get(CONF_PASSWORD)
-    gate = (host,port,password)
+    gate = OpenWebNet(host,port,password)
+    gate.cmd_session()
     hass.data[DOMAIN] = gate
     return True

@@ -19,14 +19,12 @@ _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "my_home"
 DEPENDENCIES = ['my_home']
-#REQUIREMENTS = ['OpenWebNet==1.0.1']
+
 from OpenWebNet import OpenWebNet
 
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    #vol.Required(CONF_HOST): cv.string,
-    #vol.Required(CONF_PASSWORD): cv.string,
-    #vol.Optional(CONF_PORT, default = '20000'): cv.string,
+
     vol.Required(CONF_DEVICES): vol.All(cv.ensure_list,[
         {
             vol.Required(CONF_NAME): cv.string,
@@ -40,15 +38,16 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup the My Home Platform TEST"""
 
-    #import OpenWebNet
-    gate_data = hass.data[DOMAIN]
-    print('gate',gate_data)
-    gate=OpenWebNet(gate_data[0],gate_data[1],gate_data[2])
+
+    #gate_data = hass.data[DOMAIN]
+    gate = hass.data[DOMAIN]
+    print('gate',gate)
+    #gate=OpenWebNet(gate_data[0],gate_data[1],gate_data[2])
     add_devices(MyHomeLight(light,gate) for light in config[CONF_DEVICES])
 
 class MyHomeLight(Light):
     """ Rappresentazione di una luce My Home """
-    #import OpenWebNet
+
 
     def __init__ (self,light,gate):
         """Inizializzo MyHome light"""
@@ -58,22 +57,19 @@ class MyHomeLight(Light):
         self._indirizzo = light['indirizzo']
         self._state = False
 
-    #@asyncio.coroutine
-    #def async_added_to_hass(self):
-    #    def _init_gate():
-    #        self.get_status()
-    #    yield from self.hass.async_add_job(_init_gate)
+
+    @asyncio.coroutine
+    def async_added_toHass(self):
+        #self.get_status()
+        yield from self.hass.async_add_job(update())
 
     @property
     def name(self):
         """Return the display name of this light """
-        #import OpenWebNet
+
 
         return self._name
 
-    #@property
-    #def should_poll(self):
-    #    return False
 
 
     @property
@@ -86,21 +82,21 @@ class MyHomeLight(Light):
     def turn_on(self, **kwargs):
         """Instruct the light to turn on"""
         #import OpenWebNet
-        print('luce on')
+
         self._gate.luce_on(self._indirizzo)
+
 
     def turn_off(self, **kwargs):
         """Instruct the light to turn off"""
         #import OpenWebNet
-        print('luce off')
+
         self._gate.luce_off(self._indirizzo)
+
 
     def update(self):
         #import OpenWebNet
-        print ('stato luce a indirizzo',self._indirizzo)
-        self._state=self._gate.stato_luce(self._indirizzo)
+        #print('get_status light')
+        self._gate.ask_stato_luce(self._indirizzo)
+        self._state=self._gate.answ_stato_luce(self._indirizzo)
 
-    #def get_status(self):
-    #    print ('stato luce a indirizzo',self._indirizzo)
-    #    self._state=self._gate.stato_luce(self._indirizzo)
-    #    self.schedule_update_ha_state()
+        self.schedule_update_ha_state()
