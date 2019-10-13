@@ -1,27 +1,26 @@
 # My Home bTicino platform in Home Assistant
 The system is functioning with light and temperature.
-LIGHT
+
+**LIGHT**
 Show the state of light
 Switch ON or OFF pressing the wall trigger or using HA.
 
-TEMPERATURE
+**TEMPERATURE**
 It's possible to read for each zone:
 
-the temperature from the probe, 
+- the temperature from the probe, 
+- the set temperature,
+- the state of the valve
 
-the set temperature,
-
-the state of the valve
-
-GATEWAY
+**GATEWAY**
 It's possible to read the data from the gateway bTicino installed:
-Gateway Model
-Gateway IP
-Gateway Firmware
-Gateway Uptime
+- Gateway Model
+- Gateway IP
+- Gateway Firmware
+- Gateway Uptime
 
 
-HOW TO INSTALL
+**HOW TO INSTALL**
 Copy all the file under custom_components directory, if not present, create it.
 You must have:
 - custom_components
@@ -34,8 +33,8 @@ You must have:
 System install automatically OpenWeb==0.0.7 from Pypi
 
 
-HOW TO USE
-ad these in your configuration.yaml
+**HOW TO USE**
+ad to your configuration.yaml
 
 ```yaml
 my_home:
