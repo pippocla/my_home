@@ -37,11 +37,11 @@ System install automatically OpenWeb==0.0.7 from Pypi
 HOW TO USE
 ad these in your configuration.yaml
 
-
--my_home:
-  -host: 'IP address of your Gateway'
-  -port: 'the port of your Gateway, default 20000'
-  -password: 'password of your Gateway'
+```python
+my_home:
+  host: 'IP address of your Gateway'
+  port: 'the port of your Gateway, default 20000'
+  password: 'password of your Gateway'
   
   
   if your Gateway do not use password include the IP address of your homeassistant server in the list of authorized IP
