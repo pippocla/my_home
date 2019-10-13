@@ -13,7 +13,7 @@ The system is functioning with light and temperature.
  - the state of the valve
 
 **GATEWAY**
--It's possible to read the data from the gateway bTicino installed:
+- It's possible to read the data from the gateway bTicino installed:
  - Gateway Model
  - Gateway IP
  - Gateway Firmware
@@ -23,7 +23,7 @@ The system is functioning with light and temperature.
 **HOW TO INSTALL**
 - Copy all the file under custom_components directory, if not present, create it.
 - You must have:
-- custom_components
+ - custom_components
   - my_home
     - __init__.py
     - light.py
