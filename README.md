@@ -24,8 +24,8 @@ Gateway Uptime
 HOW TO INSTALL
 Copy all the file under custom_components directory, if not present, create it.
 You must have:
-custom_components
-  -my_home
+- custom_components
+  - my_home
    - __init__.py
    - light.py
    - sensor.py
