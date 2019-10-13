@@ -26,10 +26,10 @@ Copy all the file under custom_components directory, if not present, create it.
 You must have:
 - custom_components
   - my_home
-   - __init__.py
-   - light.py
-   - sensor.py
-   - manifest.json
+    - __init__.py
+    - light.py
+    - sensor.py
+    - manifest.json
 
 System install automatically OpenWeb==0.0.7 from Pypi
 
@@ -37,7 +37,7 @@ System install automatically OpenWeb==0.0.7 from Pypi
 HOW TO USE
 ad these in your configuration.yaml
 
-```python
+```yaml
 my_home:
   host: 'IP address of your Gateway'
   port: 'the port of your Gateway, default 20000'
