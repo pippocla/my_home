@@ -43,10 +43,10 @@ ad these in your configuration.yaml
 #             MY HOME BTicino
 #
 #-------------------------------------------
-my_home:
-  host: 'IP address of your Gateway'
-  port: 'the port of your Gateway, default 20000'
-  password: 'password of your Gateway'
+-my_home:
+  -host: 'IP address of your Gateway'
+  -port: 'the port of your Gateway, default 20000'
+  -password: 'password of your Gateway'
   
   
   if your Gateway do not use password include the IP address of your homeassistant server in the list of authorized IP
