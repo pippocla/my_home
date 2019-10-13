@@ -45,20 +45,39 @@ my_home:
 Configuring Light
 
 light:
+#  MY HOME BTicino
   - platform: my_home
-    scan_interval: I suggest 0.5, every 0.5sec there is an update
+    scan_interval: 0.5 (update every 0.5 sec)
     devices:
-      - name: A name for your light
-        indirizzo: the address on the bus for your light, is the value you set with 2 jumper on the  rele or wall switch es 72, 42 .....
+       - name: A name for your light
+         indirizzo: the address on the bus for your light, is the value you set with 2 jumper on the  rele or wall switch es 72, 42 .....
+
         
         
 Configuring thermal probe and/or central unit
 
 sensor:
+#  MY HOME BTicino
   - platform: my_home
+
     devices:
-      - type:'Temperature'
-      (chose between 'Temperature','SetTemperature' and 'Valve_State'
+      - type: 'Temperature'
+        Name: 'T Zona Notte'
+        indirizzo: '11'
+      - type: 'SetTemperature'
+        Name: 'SetT Zona Notte'
+        indirizzo: '11'
+      - type: 'Valve_State'
+        Name: 'Zona Notte'
+        indirizzo: '11'
+         
+
+    
+      type chose between:
+      'Temperature' read the temperature of the zone
+      'SetTemperature' read the set temperature of the zone
+      'Valve_State' read the state of the valve of the zone
+      
       - name: A name for your probe or central unit
         indirizzo: the address on the bus for your probe or central unit, is the value you set with 2 jumper on the  probe or central unit wall  es 11, 12 .....
         
