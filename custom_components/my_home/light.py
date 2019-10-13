@@ -59,10 +59,6 @@ class MyHomeLight(Light):
         self._first = {}
 
 
-#    @asyncio.coroutine
-#    def async_added_toHass(self):
-#        #self.get_status()
-#        yield from self.hass.async_add_job(update())
 
     @property
     def name(self):
@@ -76,36 +72,26 @@ class MyHomeLight(Light):
     @property
     def is_on(self):
         """Return true if the light is on """
-        #import OpenWebNet
 
         return self._state
 
     def turn_on(self, **kwargs):
         """Instruct the light to turn on"""
-        #import OpenWebNet
 
         self._gate.cmd_open("1","1",self._indirizzo)
 
 
     def turn_off(self, **kwargs):
         """Instruct the light to turn off"""
-        #import OpenWebNet
 
         self._gate.cmd_open("1","0",self._indirizzo)
 
 
     def update(self):
-        #import OpenWebNet
-        #print('self_first',self._first)
+
         if not self._first.get(self._indirizzo) :
 
             self._first[self._indirizzo]='1'
             print('self_first update',self._first)
             self._gate.cmd_open("1",'',self._indirizzo)
         self._state = self._gate.light_status(self._indirizzo)
-
-
-        #schedule_update_ha_stateself._state = True
-        #self._state=self._gate.answ_stato_luce(self._indirizzo)
-
-        #self.schedule_update_ha_state()

@@ -57,8 +57,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
 
     gate = hass.data[DOMAIN]
-    #gate_data = hass.data[DOMAIN]
-    #gate=OpenWebNet(gate_data[0],gate_data[1],gate_data[2])
+
     add_devices(MyHomeTempSensor(sensor,gate) for sensor in config[CONF_DEVICES])
 
 class MyHomeTempSensor(Entity):
@@ -67,8 +66,7 @@ class MyHomeTempSensor(Entity):
 
     def __init__ (self,sensor_type,gate):
         """Inizializzo MyHome light"""
-        #print('sensor_type',sensor_type)
-        #print('wwwwwwwwwwwwwww',SENSOR_TYPES.get(sensor_type['type'])[1])
+
         self._gate = gate
         self.type = sensor_type['type']
         self._name = sensor_type['Name']
@@ -77,10 +75,7 @@ class MyHomeTempSensor(Entity):
         self._state = False
         print('sensortype',self.type)
         print('name',self._name)
-    #@asyncio.coroutine
-    #def async_added_toHass(self):
-    #    self.get_status()
-    #    yield from self.hass.async_add_job(update())
+
 
     @property
     def name(self):
@@ -90,15 +85,13 @@ class MyHomeTempSensor(Entity):
 
     @property
     def device_clas(self):
-        #print('self.type',self.type)
-        #print('wwwwwwwwwwwwwww',SENSOR_TYPES.get(self.type)[3])
+
         """Retunr the class of this sensor."""
         return SENSOR_TYPES.get(self.type)[3]
 
     @property
     def icon(self):
-        #print('self.type icon',self.type)
-        #print('wwwwwwwwwwwwwww icon',SENSOR_TYPES.get(self.type)[2])
+
         """Icon to use in the frontend, if any."""
         return SENSOR_TYPES.get(self.type)[2]
 
@@ -115,8 +108,7 @@ class MyHomeTempSensor(Entity):
         return self._unit_of_measurement
 
     def update(self):
-        #print('get temperature')
-        #time.sleep(1)
+
         print('update sensor type',self.type)
         print('update sensor name',self._name)
         if self.type == 'SetTemperature':
@@ -148,6 +140,3 @@ class MyHomeTempSensor(Entity):
             print('Gateway Uptime request from hass')
             self._gate.cmd_open('13','19','')
             self._state = self._gate.gateway_Status('19')
-
-
-        #self.schedule_update_ha_state()
