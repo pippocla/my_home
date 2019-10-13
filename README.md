@@ -36,7 +36,7 @@ System install automatically OpenWeb==0.0.7 from Pypi
 
 HOW TO USE
 ad these in your configuration.yaml
-
+*
 
 #-------------------------------------------
 #
@@ -102,6 +102,6 @@ light:
        - name: 'name of the light '
          indirizzo: 'the address on the bus for your light, is the value you set with 2 jumper on the  rele or wall switch es 72, 42 .....'
 
-  
+
 
 
