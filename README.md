@@ -14,21 +14,21 @@ The system is functioning with light and temperature.
 
 **GATEWAY**
 - It's possible to read the data from the gateway bTicino installed:
- - Gateway Model
- - Gateway IP
- - Gateway Firmware
- - Gateway Uptime
+  - Gateway Model
+  - Gateway IP
+  - Gateway Firmware
+  - Gateway Uptime
 
 
 **HOW TO INSTALL**
 - Copy all the file under custom_components directory, if not present, create it.
 - You must have:
- - custom_components
-  - my_home
-    - __init__.py
-    - light.py
-    - sensor.py
-    - manifest.json
+  - custom_components
+    - my_home
+      - __init__.py
+      - light.py
+      - sensor.py
+      - manifest.json
 
 System install automatically OpenWeb==0.0.7 from Pypi
 
