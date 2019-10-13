@@ -2,27 +2,27 @@
 The system is functioning with light and temperature.
 
 **LIGHT**
-Show the state of light
-Switch ON or OFF pressing the wall trigger or using HA.
+-Show the state of light
+-Switch ON or OFF pressing the wall trigger or using HA.
 
 **TEMPERATURE**
-It's possible to read for each zone:
+-It's possible to read for each zone:
 
-- the temperature from the probe, 
-- the set temperature,
-- the state of the valve
+ - the temperature from the probe, 
+ - the set temperature,
+ - the state of the valve
 
 **GATEWAY**
-It's possible to read the data from the gateway bTicino installed:
-- Gateway Model
-- Gateway IP
-- Gateway Firmware
-- Gateway Uptime
+-It's possible to read the data from the gateway bTicino installed:
+ - Gateway Model
+ - Gateway IP
+ - Gateway Firmware
+ - Gateway Uptime
 
 
 **HOW TO INSTALL**
-Copy all the file under custom_components directory, if not present, create it.
-You must have:
+-Copy all the file under custom_components directory, if not present, create it.
+-You must have:
 - custom_components
   - my_home
     - __init__.py
@@ -34,7 +34,7 @@ System install automatically OpenWeb==0.0.7 from Pypi
 
 
 **HOW TO USE**
-ad to your configuration.yaml
+-ad to your configuration.yaml
 
 ```yaml
 my_home:
