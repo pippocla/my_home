@@ -9,7 +9,7 @@ import logging
 import voluptuous as vol
 import asyncio
 
-from homeassistant.components.light import Light, PLATFORM_SCHEMA
+from homeassistant.components.light import LightEntity, PLATFORM_SCHEMA
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_PORT, CONF_NAME, CONF_DEVICES
 from custom_components.my_home import DOMAIN
 import homeassistant.helpers.config_validation as cv
@@ -40,7 +40,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     gate = hass.data[DOMAIN]
     add_devices(MyHomeLight(light,gate) for light in config[CONF_DEVICES])
 
-class MyHomeLight(Light):
+class MyHomeLight(LightEntity):
     """ Rappresentazione di una luce My Home """
     def __init__ (self,light,gate):
         """Inizializzo MyHome light"""
